@@ -1,0 +1,18 @@
+html,
+body {
+  height: 100%;
+  width: 100%;
+  color: white;
+}
+
+.blue {
+  background-color: blue;
+}
+
+.purple {
+  background-color: purple;
+}
+
+.yellow {
+  background-color: yellow;
+}
