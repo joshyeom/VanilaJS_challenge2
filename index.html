@@ -1,14 +1,28 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width" />
-    <title>replit</title>
-    <link href="./src/styles.css" rel="stylesheet" type="text/css" />
+    <title>Parcel Sandbox</title>
+    <meta charset="UTF-8" />
   </head>
 
-  <body class="purple">
-    <span>Hello!</span>
-    <script src="./src/index.js"></script>
+  <body>
+    <h1>Random Number Game</h1>
+    <h2>
+      Generate a number between 0 and
+      <form>
+        <input type="number" id="generate" />
+      </form>
+    </h2>
+    <h3>
+      Guess the number:
+      <form id="play-button">
+        <input id="guess" type="number" />
+        <button id="play-button" type="submit">
+          Play!
+        </button>
+      </form>
+    </h3>
+    <span></span>
+    <script src="./src/index.js" rel="app"></script>
   </body>
 </html>

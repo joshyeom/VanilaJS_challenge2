@@ -1,18 +1,22 @@
-function windowHandler() {
-  const windowLength = window.innerWidth; //function 안에서 선언해야 반응형이 된단다.
-  if (windowLength < 400) {
-    document.body.classList.add("blue");
-    document.body.classList.remove("yellow");
-    document.body.classList.remove("purple");
-  } else if (windowLength > 800) {
-    document.body.classList.add("yellow");
-    document.body.classList.remove("blue");
-    document.body.classList.remove("purple");
+const generateANumber = document.querySelector("#generate");
+const guessTheNumber = document.querySelector("#guess");
+const playButton = document.querySelector("#play-button");
+const play = document.querySelector("span");
+
+function machineChoose(event) {
+  event.preventDefault();
+  const guessValue = parseInt(guessTheNumber.value);
+  const generateValue = parseInt(generateANumber.value);
+  const machineNumber = 1 + Math.floor(Math.random() * generateValue);
+  if (machineNumber === guessValue) {
+    play.innerText = `You chose:${guessValue}, the machine chose:${machineNumber} You Won!`;
+  } else if (generateValue < 0) {
+    alert("Please generate positive number");
+  } else if (generateValue < guessValue) {
+    alert("please check your Guess number");
   } else {
-    document.body.classList.add("purple");
-    document.body.classList.remove("blue");
-    document.body.classList.remove("yellow");
+    play.innerText = `You chose:${guessValue}, the machine chose:${machineNumber} You Lost!`;
   }
 }
 
-window.addEventListener("resize", windowHandler);
+playButton.addEventListener("submit", machineChoose);
