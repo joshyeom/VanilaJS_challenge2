@@ -1,22 +1,22 @@
-const generateANumber = document.querySelector("#generate");
-const guessTheNumber = document.querySelector("#guess");
-const playButton = document.querySelector("#play-button");
-const play = document.querySelector("span");
+const giveMeColor = document.querySelector("button");
+const color = [
+  "#FF0000",
+  "#00FFFF",
+  "#0000FF",
+  "#00008B",
+  "#ADD8E6",
+  "#800080",
+  "#FFFF00",
+  "#00FF00",
+  "#FF00FF",
+  "#FFC0CB",
+];
+const box = document.getElementsByTagName("body")[0];
 
-function machineChoose(event) {
-  event.preventDefault();
-  const guessValue = parseInt(guessTheNumber.value);
-  const generateValue = parseInt(generateANumber.value);
-  const machineNumber = 1 + Math.floor(Math.random() * generateValue);
-  if (machineNumber === guessValue) {
-    play.innerText = `You chose:${guessValue}, the machine chose:${machineNumber} You Won!`;
-  } else if (generateValue < 0) {
-    alert("Please generate positive number");
-  } else if (generateValue < guessValue) {
-    alert("please check your Guess number");
-  } else {
-    play.innerText = `You chose:${guessValue}, the machine chose:${machineNumber} You Lost!`;
-  }
+function randomColor() {
+  let colorOne = color[Math.floor(Math.random() * color.length)];
+  let colorTwo = color[Math.floor(Math.random() * color.length)];
+  box.style.background = `linear-gradient(90deg, ${colorOne}, ${colorTwo})`;
 }
 
-playButton.addEventListener("submit", machineChoose);
+giveMeColor.addEventListener("click", randomColor);
